@@ -2,10 +2,13 @@
   "name": "zh-ui",
   "version": "0.1.0",
   "private": true,
+  "main":"/dist/zf.umd.min.js",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "test:unit": "vue-cli-service test:unit"
+    "build": "vue-cli-service build --target lib --name clp ./src/packages/index.js --no-clean && vue-cli-service build --all --no-clean",
+    "test:unit": "vue-cli-service test:unit",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs"
   },
   "dependencies": {
     "core-js": "^3.6.5",
@@ -19,6 +22,7 @@
     "@vue/test-utils": "^2.0.0-0",
     "chai": "^4.1.2",
     "sass": "^1.26.5",
-    "sass-loader": "^8.0.2"
+    "sass-loader": "^8.0.2",
+    "vitepress": "^0.20.0"
   }
 }

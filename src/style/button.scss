@@ -1,0 +1,78 @@
+@import './common/_var.scss'; // 共工样式
+@import './mixins/mixins.scss'; // 方法
+$primary: #409EFF;
+$success: #67C23A;
+$warning: #E6A23C;
+$danger: #F56C6C;
+$info: #909399;
+
+$color-list: (
+    primary:$primary,
+    success:$success,
+    warning:$warning,
+    danger:$danger,
+    info:$info
+);
+$color-active-list :(
+    primary:$primary-active,
+    success:$success-active,
+    warning:$warning-active,
+    danger:$danger-active,
+    info:$info-active
+);
+
+@include blockquote(button) {
+    @include status($color-list);
+    display: inline-flex;
+    font-size: $font-size;
+    border-radius: $border-radius;
+    padding: 0 20px;
+    border:none;
+    min-width: 80px;
+    outline: none;
+    box-shadow: 2px 2px #ccc;
+    color: #fff;
+    align-items: center;
+    line-height: 40px;
+    height: 40px;
+    justify-content: center;
+    vertical-align: middle;
+    @keyframes rotate {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+    .loading {
+        animation: rotate 1s linear infinite ;
+    }
+    &:disabled {
+        cursor: not-allowed;
+    }
+    .icon {
+        fill:#fff;
+        vertical-align: middle;
+    }
+    &:active:not(:disabled) {
+        @include status($color-active-list);
+    }
+    &.zf-button-left {
+        .icon {
+            order:1
+        }
+        span {
+            order:2
+        }
+    }
+    &.zf-button-right {
+        .icon {
+            order:2
+        }
+        span {
+            order:1
+        }
+    }
+   
+}

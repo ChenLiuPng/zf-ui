@@ -1,4 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 
-createApp(App).mount('#app')
+import ZfUi from './packages/index'
+
+
+createApp(App).use(ZfUi).mount('#app')
